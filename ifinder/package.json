@@ -17,5 +17,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.2",
     "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "sass": "^1.68.0"
   }
 }
