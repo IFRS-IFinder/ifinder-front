@@ -1,16 +1,18 @@
 import { NextResponse } from 'next/server'
 import { APP_ROUTER } from './constants/appRouter'
+import { LOCAL_KEYS } from './constants'
 
 export function middleware(request) {
-    const isLogged = request.cookies.get()
+  const token = request.cookies.has(LOCAL_KEYS.TOKEN);
+  const actualUrl = request.nextUrl.pathname;
 
-    if (request.nextUrl.pathname.includes(APP_ROUTER.HOME) && isLogged) {
-        return NextResponse.rewrite(new URL(APP_ROUTER.PRIVATE, request.url))
-    }
+  if (actualUrl.includes(APP_ROUTER.PRIVATE) && !token) {
+    return NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
+  }
 
-    if (request.nextUrl.pathname.includes(APP_ROUTER.PRIVATE) && !isLogged) {
-    return NextResponse.rewrite(new URL(APP_ROUTER.HOME, request.url))
-    }
+  if (actualUrl.includes(APP_ROUTER.HOME) && token) {
+    return NextResponse.redirect(new URL(APP_ROUTER.PRIVATE, request.url));
+  }
 }
  
 export const config = {

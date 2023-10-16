@@ -5,12 +5,15 @@ import s from "@/styles/home.module.scss"
 import { APP_ROUTER } from "@/constants";
 
 export default function Auth(){
-    const {register, errors, handleSubmit, onSubmit} = useLogin();
+    const {register, errors, handleSubmit, onSubmit, errorLogin, isLoading} = useLogin();
 
     return(
       <main>
         <h1>IFinder</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
+            {errorLogin && <p>{errorLogin}</p>}
+            {isLoading && <p>{isLoading}</p>}
+
             <input type="text" {...register("email")}/>
             {errors.email?.message && <p>{errors.email?.message}</p>}
 
