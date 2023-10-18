@@ -1,10 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { RegisterSchema } from "./schema";
+import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
 
 export function useRegister() {
   const {
-    formState: { erros },
+    formState: { errors },
     register,
     handleSubmit,
   } = useForm({
@@ -14,22 +15,18 @@ export function useRegister() {
   const [errorRegister, setErrorRegister] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  function onSubmit(data) {
-    /*
-        try{
-            setIsLoading(true)
-            const dataUser = authService.auth(data.email, data.password)
+  async function onSubmit(data) {
+    try {
+      setIsLoading(true);
+      await axios.post(ROUTE_HANDLERS.REGISTER , {email: data.email, password: data.password});
 
-            //revalidatePath
-            //redirect
-
-        } catch(error){
-            setErrorLogin(error.response?.message)
-        } finally{
-            setIsLoading(false)
-        }
-        */
+    } catch (error) {
+      setErrorRegister(error.response?.message);
+    } finally {
+      setIsLoading(false);
+    }
   }
+
 
   return { register, handleSubmit, onSubmit, errors, errorRegister, isLoading };
 }
