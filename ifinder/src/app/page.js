@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useLogin } from "./auth/useLogin.hook"
 import s from "@/styles/home.module.scss"
-import { APP_ROUTER } from "@/constants";
+import { APP_ROUTES } from "@/constants";
 
 export default function Auth(){
     const {register, errors, handleSubmit, onSubmit, errorLogin, isLoading} = useLogin();
@@ -19,9 +19,10 @@ export default function Auth(){
 
             <input type="password" {...register("password")}/>
             {errors.password?.message && <p>{errors.password?.message}</p>}
-            <button type="submit">Enviar</button>
+            
+            <button type="submit" disabled={isLoading}>Enviar</button>
         </form>
-        <Link href={APP_ROUTER.REGISTER}>Criar conta</Link>
+        <Link href={APP_ROUTES.REGISTER}>Criar conta</Link>
       </main>
 
     )
