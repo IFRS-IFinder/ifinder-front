@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useLogin } from "./useLogin.hook"
-import s from "@/styles/home.module.scss"
+import s from "@/styles/pages/login.module.scss"
 import { APP_ROUTES } from "@/constants";
 import { InputWrapper } from "@/components";
 

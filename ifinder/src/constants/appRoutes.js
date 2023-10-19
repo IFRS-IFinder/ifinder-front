@@ -1,5 +1,6 @@
 export const APP_ROUTES = {
-    REGISTER: "register",
+    REGISTER: "/register/",
+    EDIT: "/edit/",
     HOME: "/",
     PRIVATE: "/private",
     CARDS: "/cards",

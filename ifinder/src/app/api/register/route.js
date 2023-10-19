@@ -1,5 +1,5 @@
 import { LOCAL_KEYS } from "@/constants";
-import { authService } from "@/services/authService";
+import { authService } from "@/services";
 import { getDateExpiration } from "@/utils";
 import axios from "axios";
 import { cookies } from "next/headers";

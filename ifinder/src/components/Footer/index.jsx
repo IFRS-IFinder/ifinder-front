@@ -2,7 +2,7 @@
 import { APP_ROUTES } from "@/constants";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import s from "@/styles/Footer.module.scss"
+import s from "@/styles/components/Footer.module.scss"
 
 export function Footer(){
     const pathname = usePathname()

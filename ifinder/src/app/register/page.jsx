@@ -1,5 +1,8 @@
+"use client"
 import { InputWrapper } from "@/components";
 import { useRegister } from "./useRegister.hook";
+import Link from "next/link";
+import { APP_ROUTES } from "@/constants";
 
 export default function Register() {
   const { register, errors, handleSubmit, onSubmit, errorRegister, isLoading } =
@@ -15,7 +18,7 @@ export default function Register() {
         <InputWrapper text="email" error={errors.email?.message}>
           <input type="email" {...register("email")} />
         </InputWrapper>
-        
+
         <InputWrapper text="password" error={errors.password?.message}>
           <input type="password" {...register("password")} />
         </InputWrapper>
@@ -41,6 +44,7 @@ export default function Register() {
         </InputWrapper>
 
         <button>Criar conta</button>
+        <Link href={APP_ROUTES.HOME}>Voltar</Link>
       </form>
     </div>
   );
