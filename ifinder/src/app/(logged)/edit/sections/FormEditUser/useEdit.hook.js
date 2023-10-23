@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { RegisterSchema } from "./schema";
+import { EditSchema } from "./schema";
 import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
 import { useState } from "react";
 
@@ -17,24 +17,27 @@ export function useEdit(user) {
       description: user.description,
       hoobies: user.hoobies,
     },
-    resolver: zodResolver(RegisterSchema),
+    resolver: zodResolver(EditSchema),
   });
-  const [errorRegister, setErrorRegister] = useState(null);
+  const [errorEdit, setErrorEdit] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   async function onSubmit(data) {
     try {
       setIsLoading(true);
-      await axios.post(ROUTE_HANDLERS.REGISTER, {
+      await axios.post(ROUTE_HANDLERS.EDIT, {
         email: data.email,
-        password: data.password,
+        age: data.age,
+        sex: data.sex,
+        description: data.description,
+        hoobies: data.hoobies,
       });
     } catch (error) {
-      setErrorRegister(error.response?.message);
+      setErrorEdit(error.response?.message);
     } finally {
       setIsLoading(false);
     }
   }
 
-  return { register, handleSubmit, onSubmit, errors, errorRegister, isLoading };
+  return { register, handleSubmit, onSubmit, errors, errorEdit, isLoading };
 }

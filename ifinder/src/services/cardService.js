@@ -8,4 +8,10 @@ export const cardService = {
     });
     return response.data;
   },
+  add: async(content) => {
+    const response = await axios.post(API_ROUTES.CARD, {
+      content: content
+    });
+    return response.data;
+  }
 };
