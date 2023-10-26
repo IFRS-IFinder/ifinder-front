@@ -4,7 +4,7 @@ const regexEmail = new RegExp(
   "^(([a-z]+)\\.([a-z]+))(@aluno\\.feliz\\.ifrs\\.edu\\.br)$"
 );
 
-export const RegisterSchema = z.object({
+export const EditSchema = z.object({
   email: z
     .string()
     .nonempty("O email deve ser preenchido")

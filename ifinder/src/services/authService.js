@@ -9,5 +9,16 @@ export const authService = {
             password: password
         })
         return response.data
-    }
+    },
+    register: async (email, password, description, age, sex, hobbies) => {
+        const response = await axiosInstance.post(API_ROUTES.AUTH + API_ROUTES.REGISTER, {
+            email: email,
+            password: password,
+            description: description,
+            age: age,
+            sex: sex,
+            hobbies: hobbies
+        })
+        return response.data;
+    },
 }

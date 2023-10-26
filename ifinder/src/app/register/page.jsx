@@ -43,7 +43,7 @@ export default function Register() {
           />
         </InputWrapper>
 
-        <button>Criar conta</button>
+        <button disabled={isLoading}>Criar conta</button>
         <Link href={APP_ROUTES.HOME}>Voltar</Link>
       </form>
     </div>

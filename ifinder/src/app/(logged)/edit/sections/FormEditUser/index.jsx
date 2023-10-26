@@ -36,7 +36,7 @@ export function FormEditUser({ user }) {
         />
       </InputWrapper>
 
-      <button>Editar conta</button>
+      <button disabled={isLoading}>Editar conta</button>
     </form>
   );
 }
