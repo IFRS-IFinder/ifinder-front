@@ -25,7 +25,7 @@ export function useEdit(user) {
   async function onSubmit(data) {
     try {
       setIsLoading(true);
-      await axios.post(ROUTE_HANDLERS.REGISTER, {
+      await axios.post(ROUTE_HANDLERS.EDIT_USER + user.id, {
         email: data.email,
         password: data.password,
       });

@@ -1,5 +1,5 @@
 import { userService } from "@/services";
-import { CardBox, ProfileBox } from "./components";
+import { CardBox, ModalAddCard, ProfileBox } from "./components";
 
 export default async function Profile({ params }) {
   //  const profileData = await userService.getById(params.id);
@@ -30,7 +30,7 @@ export default async function Profile({ params }) {
         imageProfile={profileData.imageProfile}
         isAuthor={profileData.isAuthor}
       />
-      {profileData.isAuthor && <button>Nova Carta</button>}
+      <ModalAddCard />
 
       {renderCardsBox()}
     </div>

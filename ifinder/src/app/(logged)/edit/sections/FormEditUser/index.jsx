@@ -36,7 +36,7 @@ export function FormEditUser({ user }) {
         />
       </InputWrapper>
 
-      <button>Criar conta</button>
+      <button>Editar conta</button>
     </form>
   );
 }

@@ -7,7 +7,7 @@ export function middleware(request) {
   const actualUrl = request.nextUrl.pathname;
 
   if (actualUrl.includes(APP_ROUTES.PRIVATE) && !token) {
-    return NextResponse.redirect(new URL(ROUTES.AUTH, request.url));
+    return NextResponse.redirect(new URL(APP_ROUTES.AUTH, request.url));
   }
 
   if (actualUrl.includes(APP_ROUTES.HOME) && token) {
