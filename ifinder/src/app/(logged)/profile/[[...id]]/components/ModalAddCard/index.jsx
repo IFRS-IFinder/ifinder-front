@@ -15,7 +15,7 @@ export function ModalAddCard() {
   return (
     <div>
       <button onClick={() => setIsActive(false)}>Cancelar</button>
-      <h2>ModalAddCard</h2>
+      <h2>Adicionar carta</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputWrapper text="Conteúdo da carta" error={errors.content?.message}>
           <textarea rows="10" {...register("content")} />

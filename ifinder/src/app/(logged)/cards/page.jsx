@@ -1,8 +1,4 @@
-import { chat, trash } from "@/assets/images";
-import { cardService } from "@/services";
-import Image from "next/image";
-import Link from "next/link";
-import { Card } from "./components/Card";
+import { ControllerCards } from "./sections";
 
 
 export default async function CardsPage({ searchParams }) {
@@ -11,6 +7,7 @@ export default async function CardsPage({ searchParams }) {
   const cardsData = [
     {
       profileImage: "/node_modulesasd",
+      id: 1,
       name: "asd",
       age: "asd",
       description: "asd",
@@ -20,24 +17,27 @@ export default async function CardsPage({ searchParams }) {
     },
     {
       profileImage: "/node_modulesasd",
-      name: "asd",
-      age: "asd",
-      description: "asd",
-      hoobies: "asd",
-      cardContent: "asd",
-      sex: "asd",
+      id: 1,
+      name: "AAAAA",
+      age: "AAAAA",
+      description: "AAAAA",
+      hoobies: "AAAAA",
+      cardContent: "AAAAA",
+      sex: "AAAAA",
     },
     {
       profileImage: "/node_modulesasd",
-      name: "asd",
-      age: "asd",
-      description: "asd",
-      hoobies: "asd",
-      cardContent: "asd",
-      sex: "asd",
+      id: 1,
+      name: "1123123",
+      age: "1123123",
+      description: "1123123",
+      hoobies: "1123123",
+      cardContent: "1123123",
+      sex: "ASD",
     },
     {
       profileImage: "/node_modulesasd",
+      id: 1,
       name: "asd",
       age: "asd",
       description: "asd",
@@ -47,33 +47,12 @@ export default async function CardsPage({ searchParams }) {
     },
   ];
 
-  function renderCards() {
-    return cardsData.map((card) => (
-      <Card
-        key={card.id}
-        id={card.id}
-        profileImage={card.profileImage}
-        name={card.name}
-        age={card.age}
-        description={card.description}
-        hoobies={card.hoobies}
-        cardContent={card.cardContent}
-        sex={card.sex}
-      />
-    ));
-  }
   return (
     <div>
       <h1>Cards</h1>
 
-        {renderCards()}
-
-      <button>
-        <Image src={trash} width={30} height={30} alt="Lixeira" />
-      </button>
-      <button>
-        <Image src={chat} width={30} height={30} alt="Chat" />
-      </button>
+      <ControllerCards cards={cardsData} page={page} />
+      
     </div>
   );
 }
