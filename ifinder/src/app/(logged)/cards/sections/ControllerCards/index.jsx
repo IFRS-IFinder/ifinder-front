@@ -5,16 +5,22 @@ import { Card } from "../../components";
 import { chat, trash } from "@/assets/images";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { APP_ROUTES } from "@/constants";
 
 export function ControllerCards({cards, page}){
     const { push } = useRouter();
     const [indexCard, setIndexCard] = useState(0)
     
-    function nextCard(){    
-        setIndexCard(oldIndex => oldIndex + 1)
-        if(indexCard >= cards.length){
-            push("?page=" + Number(page)+1)
-        }
+    function nextCard(){
+      const nextIndex = indexCard + 1
+
+      if(nextIndex < cards.length){
+        setIndexCard(nextIndex)
+      } else{
+        setIndexCard(0)
+        push("?page=" + (Number(page)+1))
+      }
     }
 
     function renderCard() {
@@ -38,12 +44,13 @@ export function ControllerCards({cards, page}){
     <div>
 
       {renderCard()}
+
       <button onClick={nextCard}>
         <Image src={trash} width={30} height={30} alt="Lixeira" />
       </button>
-      <button> 
+      <Link href={APP_ROUTES.CHAT + "/user/" + cards[indexCard].userId + "/card/" + card[indexCard].id}> 
         <Image src={chat} width={30} height={30} alt="Chat" />
-      </button>
+      </Link>
 
     </div>
     )
