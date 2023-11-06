@@ -48,7 +48,7 @@ export function ControllerCards({cards, page}){
       <button onClick={nextCard}>
         <Image src={trash} width={30} height={30} alt="Lixeira" />
       </button>
-      <Link href={APP_ROUTES.CHAT + "/user/" + cards[indexCard].userId + "/card/" + card[indexCard].id}> 
+      <Link href={APP_ROUTES.CHAT + "/user/" + cards[indexCard].userId + "/card/" + cards[indexCard].id}> 
         <Image src={chat} width={30} height={30} alt="Chat" />
       </Link>
 

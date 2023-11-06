@@ -8,6 +8,7 @@ export default async function CardsPage({ searchParams }) {
     {
       profileImage: "/node_modulesasd",
       id: 1,
+      userId: 3,
       name: "asd",
       age: "asd",
       description: "asd",
@@ -18,6 +19,7 @@ export default async function CardsPage({ searchParams }) {
     {
       profileImage: "/node_modulesasd",
       id: 1,
+      userId: 3,
       name: "AAAAA",
       age: "AAAAA",
       description: "AAAAA",
@@ -28,6 +30,7 @@ export default async function CardsPage({ searchParams }) {
     {
       profileImage: "/node_modulesasd",
       id: 1,
+      userId: 1,
       name: "1123123",
       age: "1123123",
       description: "1123123",
@@ -38,6 +41,7 @@ export default async function CardsPage({ searchParams }) {
     {
       profileImage: "/node_modulesasd",
       id: 1,
+      userId: 3,
       name: "asd",
       age: "asd",
       description: "asd",
