@@ -17,11 +17,11 @@ export default function Auth(){
             {errorLogin && <p>{errorLogin}</p>}
             {isLoading && <p>{isLoading}</p>}
 
-            <InputWrapper text="email" error={errors.email?.message}>
-              <input type="email" {...register("email")}/>
+            <InputWrapper text="Email" error={errors.email?.message}>
+              <input  type="email" {...register("email")}/>
             </InputWrapper>
 
-            <InputWrapper text="password" error={errors.password?.message}>
+            <InputWrapper  text="Senha" error={errors.password?.message}>
               <input type="password" {...register("password")}/>
             </InputWrapper>
             

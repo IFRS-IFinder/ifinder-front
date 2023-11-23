@@ -17,27 +17,27 @@ export default function Register() {
         {errorRegister && <p>{errorRegister}</p>}
         {isLoading && <p>{isLoading}</p>}
 
-        <InputWrapper text="email" error={errors.email?.message}>
+        <InputWrapper text="Email" error={errors.email?.message}>
           <input type="email" {...register("email")} />
         </InputWrapper>
 
-        <InputWrapper text="password" error={errors.password?.message}>
+        <InputWrapper text="Senha" error={errors.password?.message}>
           <input type="password" {...register("password")} />
         </InputWrapper>
 
-        <InputWrapper text="sex" error={errors.sex?.message}>
+        <InputWrapper text="Sexo" error={errors.sex?.message}>
           <input type="text" {...register("sex")} />
         </InputWrapper>
 
-        <InputWrapper text="age" error={errors.age?.message}>
+        <InputWrapper text="Idade" error={errors.age?.message}>
           <input type="text" {...register("age")} />
         </InputWrapper>
 
-        <InputWrapper text="hoobies" error={errors.hoobies?.message}>
+        <InputWrapper text="Hoobies" error={errors.hoobies?.message}>
           <input type="text" {...register("hoobies")} />
         </InputWrapper>
 
-        <InputWrapper text="description" error={errors.description?.message}>
+        <InputWrapper text="Descrição" error={errors.description?.message}>
           <textarea
             cols="5"
             {...register("description")}
@@ -46,7 +46,9 @@ export default function Register() {
         </InputWrapper>
 
         <button className={s.button} disabled={isLoading}>Criar conta</button>
-        <Link href={APP_ROUTES.HOME}>Voltar</Link>
+        <div className={s.criar}  >
+        <Link className={s.h1} href={APP_ROUTES.HOME}>Voltar</Link>
+        </div>
       </form>
     </div>
     </main>
