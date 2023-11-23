@@ -9,9 +9,11 @@ export default function Auth(){
     const {register, errors, handleSubmit, onSubmit, errorLogin, isLoading} = useLogin();
 
     return(
-      <main>
-        <h1>IFinder</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <main className={s.body}>
+        <div className={s.div}>
+          <h1 className={s.h1}>IFinder</h1>
+        
+        <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
             {errorLogin && <p>{errorLogin}</p>}
             {isLoading && <p>{isLoading}</p>}
 
@@ -23,9 +25,13 @@ export default function Auth(){
               <input type="password" {...register("password")}/>
             </InputWrapper>
             
-            <button type="submit" disabled={isLoading}>Enviar</button>
+            <button className={s.button} type="submit" disabled={isLoading}>Enviar</button>
         </form>
-        <Link href={APP_ROUTES.REGISTER}>Criar conta</Link>
+        <div className={s.criar}  >
+          <Link className={s.h1} href={APP_ROUTES.REGISTER}>Criar conta</Link>
+        </div>
+        
+        </div>
       </main>
 
     )
