@@ -4,12 +4,13 @@ import { logout } from "./logout.server";
 import { useTransition } from "react";
 import Link from "next/link";
 import { APP_ROUTES } from "@/constants";
+import s from "@/styles/pages/profile/components/profile.module.scss"
 
 export function ProfileBox({ name, age, sex, imageProfile, isAuthor }) { 
   let [isPending, startTransition] = useTransition()
 
   return (
-    <div>
+    <div className={s.profileBox}>
       <ImageProfileFallback src={imageProfile} width={30} height={30} alt="Foto de perfil" />
       {name}
       {age}

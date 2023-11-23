@@ -1,5 +1,6 @@
 import { userService } from "@/services";
 import { CardBox, ModalAddCard, ProfileBox } from "./components";
+import s from "@/styles/pages/profile/components/profile.module.scss"
 
 export default async function Profile({ params }) {
   //  const profileData = await userService.getById(params.id);
@@ -23,8 +24,8 @@ export default async function Profile({ params }) {
   }
 
   return (
-    <div>
-      <ProfileBox
+    <div >
+      <ProfileBox 
         name={profileData.name}
         age={profileData.age}
         imageProfile={profileData.imageProfile}
