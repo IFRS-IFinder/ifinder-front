@@ -27,7 +27,10 @@ export default function Auth(){
             
             <button className={s.button} type="submit" disabled={isLoading}>Enviar</button>
         </form>
-        <Link className={s.h1} href={APP_ROUTES.REGISTER}>Criar conta</Link>
+        <div className={s.criar}  >
+          <Link className={s.h1} href={APP_ROUTES.REGISTER}>Criar conta</Link>
+        </div>
+        
         </div>
       </main>
 

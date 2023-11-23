@@ -2,6 +2,7 @@
 import { InputWrapper } from "@/components";
 import { useRegister } from "./useRegister.hook";
 import Link from "next/link";
+import s from "@/styles/pages/login.module.scss"
 import { APP_ROUTES } from "@/constants";
 
 export default function Register() {
@@ -9,9 +10,10 @@ export default function Register() {
     useRegister();
 
   return (
-    <div>
-      <h1>Crie sua conta</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <main className={s.body}>
+      <div className={s.div}>
+      <h1 className={s.h1}>Crie sua conta</h1>
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         {errorRegister && <p>{errorRegister}</p>}
         {isLoading && <p>{isLoading}</p>}
 
@@ -43,9 +45,11 @@ export default function Register() {
           />
         </InputWrapper>
 
-        <button disabled={isLoading}>Criar conta</button>
+        <button className={s.button} disabled={isLoading}>Criar conta</button>
         <Link href={APP_ROUTES.HOME}>Voltar</Link>
       </form>
     </div>
+    </main>
+    
   );
 }
