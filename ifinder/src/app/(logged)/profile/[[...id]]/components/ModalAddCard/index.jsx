@@ -3,6 +3,7 @@
 import { InputWrapper } from "@/components";
 import { useAddCard } from "./useAddCard";
 import { useState } from "react";
+import s from "@/styles/pages/profile/components/profile.module.scss"
 
 export function ModalAddCard() {
   const [isActive, setIsActive] = useState(false);
@@ -10,7 +11,7 @@ export function ModalAddCard() {
     useAddCard();
 
   if (!isActive)
-    return <button onClick={() => setIsActive(true)}>Nova Carta</button>;
+    return <button onClick={() => setIsActive(true)} className={s.newcard}>Nova Carta</button>;
 
   return (
     <div>
