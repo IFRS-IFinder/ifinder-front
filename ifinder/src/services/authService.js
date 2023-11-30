@@ -1,16 +1,15 @@
 import { API_ROUTES } from "@/constants/apiRoutes"
 import axiosInstance from "./base/axiosInstance"
-import axios from "axios"
 
 
 export const authService = {
     auth: async (email, password) => {
-        const response = await axios.post("http://localhost:44390/api/auth", {
+        const response = await axiosInstance.post(API_ROUTES.AUTH, {
             email: email,
             password: password
         })
 
-        return response.data
+        return response.data.data
     },
     register: async (email, password, description, age, sex, hobbies) => {
         const response = await axiosInstance.post(API_ROUTES.AUTH + API_ROUTES.REGISTER, {

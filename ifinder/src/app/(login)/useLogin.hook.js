@@ -18,6 +18,7 @@ export function useLogin() {
     try {
       setIsLoading(true);
       await axios.post(ROUTE_HANDLERS.AUTH , {email: data.email, password: data.password});
+      push("/cards");
 
     } catch (error) {
       setErrorLogin(error.response?.message);

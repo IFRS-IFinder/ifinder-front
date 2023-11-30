@@ -3,6 +3,6 @@ export const API_ROUTES = {
     USER: "/user/",
     EDIT: "/edit",
     REGISTER: "/register/",
-    CARD: "/card/",
+    CARD: "/cards/",
     EDIT: "/edit/"
 }
