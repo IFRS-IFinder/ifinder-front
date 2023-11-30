@@ -1,5 +1,5 @@
 export const API_ROUTES = {
-    AUTH: "/auth/",
+    AUTH: "/auth",
     USER: "/user/",
     EDIT: "/edit",
     REGISTER: "/register/",

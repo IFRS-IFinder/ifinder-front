@@ -15,7 +15,6 @@ export default function Auth(){
         
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
             {errorLogin && <p>{errorLogin}</p>}
-            {isLoading && <p>{isLoading}</p>}
 
             <InputWrapper text="Email" error={errors.email?.message}>
               <input  type="email" {...register("email")}/>
@@ -25,6 +24,7 @@ export default function Auth(){
               <input type="password" {...register("password")}/>
             </InputWrapper>
             
+            {isLoading && <p>Carregando</p>}
             <button className={s.button} type="submit" disabled={isLoading}>Enviar</button>
         </form>
         <div className={s.criar}  >
