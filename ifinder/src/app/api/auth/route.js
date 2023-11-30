@@ -14,7 +14,6 @@ export async function POST(request) {
       dataRequest.email,
       dataRequest.password
     );
-    console.log(loginData)
 
     const user = { id: loginData.id, name: loginData.name };
     const JwtToken = loginData.token;
@@ -34,9 +33,9 @@ export async function POST(request) {
     });
 
     return NextResponse.json({ status: 200 });
-  } catch (error) {
-    console.log(error)
 
+  } catch (error) {
+    
     if (axios.isAxiosError(error))
       return NextResponse.json(error.response?.data, {
         status: error.response?.status,

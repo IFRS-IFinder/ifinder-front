@@ -3,14 +3,16 @@ import axios from "axios";
 import axiosInstance from "./base/axiosInstance";
 
 export const cardService = {
-  getHome: async (page, take) => {
-    const response = await axiosInstance.get(API_ROUTES.CARD);
-    return response.data;
-  },
-  add: async(content) => {
-    const response = await axiosInstance.post(API_ROUTES.CARD, {
-      content: content
+  getHome: async (page = 1, take = 10) => {
+    const response = await axiosInstance.get(API_ROUTES.CARD, {
+      params: { page: page, take: take },
     });
     return response.data;
-  }
+  },
+  add: async (content) => {
+    const response = await axiosInstance.post(API_ROUTES.CARD, {
+      content: content,
+    });
+    return response.data;
+  },
 };

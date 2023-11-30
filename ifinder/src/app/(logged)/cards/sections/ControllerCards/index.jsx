@@ -11,7 +11,7 @@ import { APP_ROUTES } from "@/constants";
 export function ControllerCards({cards, page}){
     const { push } = useRouter();
     const [indexCard, setIndexCard] = useState(0)
-    
+
     function nextCard(){
       const nextIndex = indexCard + 1
 
@@ -27,18 +27,19 @@ export function ControllerCards({cards, page}){
         const card = cards[indexCard]
         return (
             <Card
-                key={card.id}
-                id={card.id}
-                profileImage={card.profileImage}
-                name={card.name}
-                age={card.age}
-                description={card.description}
-                hoobies={card.hoobies}
-                cardContent={card.cardContent}
-                sex={card.sex}
+                key={card.idCard}
+                id={card.idCard}
+                profileImage="/node_modulesasd"
+                name={card.nameAuthor}
+                age={card.ageAuthor}
+                description={card.descriptionAuthor}
+                hoobies={card.hoobiesAuthor}
+                cardContent={card.textCard}
+                sex={card.sexAuthor}
             />
         );
     }
+    
 
     return(
     <div>
@@ -48,7 +49,7 @@ export function ControllerCards({cards, page}){
       <button onClick={nextCard}>
         <Image src={trash} width={30} height={30} alt="Lixeira" />
       </button>
-      <Link href={APP_ROUTES.CHAT + "/user/" + cards[indexCard].userId + "/card/" + cards[indexCard].id}> 
+      <Link href={APP_ROUTES.CHAT + "/user/" + cards[indexCard].idAuthor + "/card/" + cards[indexCard].idCard}> 
         <Image src={chat} width={30} height={30} alt="Chat" />
       </Link>
 
