@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { EditSchema } from "./schema";
 import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
 import { useState } from "react";
+import axios from "axios";
 
 export function useEdit(user) {
   const {
@@ -33,7 +34,7 @@ export function useEdit(user) {
         hoobies: data.hoobies,
       });
     } catch (error) {
-      setErrorEdit(error.response?.message);
+      setErrorEdit(error.response?.data);
     } finally {
       setIsLoading(false);
     }

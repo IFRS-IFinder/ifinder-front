@@ -4,13 +4,12 @@ import { InputWrapper } from "@/components";
 import { useEdit } from "./useEdit.hook";
 
 export function FormEditUser({ user }) {
-  const { register, errors, handleSubmit, onSubmit, errorRegister, isLoading } =
-    useEdit(user);
+  const { register, errors, handleSubmit, onSubmit, errorEdit, isLoading } = useEdit(user);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {errorRegister && <p>{errorRegister}</p>}
-      {isLoading && <p>{isLoading}</p>}
+      {errorEdit && <p>{errorEdit}</p>}
+      {isLoading && <p>Carregando...</p>}
 
       <InputWrapper text="email" error={errors.email?.message}>
         <input type="email" {...register("email")} />

@@ -1,6 +1,6 @@
 export const ROUTE_HANDLERS = {
     AUTH: "api/auth",
-    REGISTER: "http://localhost:3000/register",
-    EDIT: "http://localhost:3000/edit",
-    CARD: "http://localhost:3000/card"
+    REGISTER: "api/register",
+    EDIT: "api/edit",
+    CARD: "api/card"
 }

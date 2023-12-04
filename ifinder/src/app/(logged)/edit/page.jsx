@@ -6,7 +6,6 @@ import { LOCAL_KEYS } from "@/constants";
 export default async function Edit() {
   const idUser = JSON.parse(cookies().get(LOCAL_KEYS.USER).value).id
   const userData = await userService.getCompleteById(idUser);
-  console.log(userData)
   
   return (
     <div>

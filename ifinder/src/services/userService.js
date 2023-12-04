@@ -11,7 +11,7 @@ export const userService = {
     return response.data.data;
   },
   edit: async(email, description, age, sex, hobbies) => {
-    const response = await axiosInstance.patch(API_ROUTES.USER + API_ROUTES.EDIT, {
+    const response = await axiosInstance.patch(API_ROUTES.USER, {
       email: email,
       description: description,
       age: age,
