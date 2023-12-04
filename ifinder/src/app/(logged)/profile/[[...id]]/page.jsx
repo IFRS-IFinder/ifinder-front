@@ -1,24 +1,19 @@
-import { userService } from "@/services";
-import { CardBox, ModalAddCard, ProfileBox } from "./components";
+import { cardService, userService } from "@/services";
+import { CardBox, ProfileBox } from "./components";
+import { cookies } from "next/headers";
+import { LOCAL_KEYS } from "@/constants";
 
 export default async function Profile({ params }) {
-  //  const profileData = await userService.getById(params.id);
-  const profileData = {
-    name: "name",
-    age: "123",
-    sex: "femea",
-    imageProfile: "/name",
-    cards: [
-      { id: 1, content: "asd" },
-      { id: 2, content: "aaa" },
-      { id: 3, content: "bbbbb" },
-    ],
-    isAuthor: true,
-  };
+  const idUser = params.id ?? JSON.parse(cookies().get(LOCAL_KEYS.USER).value).id
+  const profileData = await userService.getSimpleById(idUser);
+  const cardsData = await cardService.getByUserId(idUser);
 
   function renderCardsBox() {
-    return profileData.cards.map((card) => (
-      <CardBox id={card.id} key={card.id} content={card.content} />
+    if (!cardsData.length) 
+      return <p>Não há cartas disponíveis</p>;
+
+    return cardsData.data.map((card) => (
+      <CardBox id={card.id} key={card.id} content={card.textCard} />
     ));
   }
 
@@ -28,9 +23,10 @@ export default async function Profile({ params }) {
         name={profileData.name}
         age={profileData.age}
         imageProfile={profileData.imageProfile}
+        description={profileData.description}
+        hoobies={profileData.hoobies}
         isAuthor={profileData.isAuthor}
       />
-      <ModalAddCard />
 
       {renderCardsBox()}
     </div>

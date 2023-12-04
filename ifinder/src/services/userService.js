@@ -2,9 +2,13 @@ import { API_ROUTES } from "@/constants/apiRoutes";
 import axiosInstance from "./base/axiosInstance";
 
 export const userService = {
-  getById: async (id) => {
+  getSimpleById: async (id) => {
     const response = await axiosInstance.get(API_ROUTES.USER + id);
-    return response.data;
+    return response.data.data;
+  },
+  getCompleteById: async (id) => {
+    const response = await axiosInstance.get(API_ROUTES.USER + id + "/complete");
+    return response.data.data;
   },
   edit: async(email, description, age, sex, hobbies) => {
     const response = await axiosInstance.patch(API_ROUTES.USER + API_ROUTES.EDIT, {
@@ -17,3 +21,4 @@ export const userService = {
     return response.data;
   }
 };
+ 

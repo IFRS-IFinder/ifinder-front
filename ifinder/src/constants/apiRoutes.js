@@ -1,6 +1,6 @@
 export const API_ROUTES = {
     AUTH: "/auth",
-    USER: "/user/",
+    USER: "/users/",
     EDIT: "/edit",
     REGISTER: "/register/",
     CARD: "/cards/",

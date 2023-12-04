@@ -20,7 +20,6 @@ const settingsHighligthesSwiper = {
 };
 
 export function Card({
-  id,
   profileImage,
   name,
   age,
