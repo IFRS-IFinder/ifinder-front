@@ -10,12 +10,13 @@ export function useAddCard(){
     const [errorAddCard, setErrorAddCard] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 
-    function onSubmit(data){
+    async function onSubmit(data){
         try{
             setIsLoading(true)
-            axios.post(ROUTE_HANDLERS.ADD_CARD, data)
+            await axios.post(ROUTE_HANDLERS.CARD, {text: data.text})
+            //TODO colocar toaster
         } catch(error){
-            setErrorAddCard(error.response?.message)
+            setErrorAddCard(error.response?.data)
         }finally{
             setIsLoading(false)
         }

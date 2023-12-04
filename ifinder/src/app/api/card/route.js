@@ -7,7 +7,7 @@ export async function POST(request) {
   const dataRequest = await request.json();
 
   try {
-    await cardService.add(dataRequest.content);
+    await cardService.add(dataRequest.text);
     return NextResponse.json({ status: 200 });
 
   } catch (error) {

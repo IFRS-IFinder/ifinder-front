@@ -14,9 +14,9 @@ export const cardService = {
     });
     return response.data;
   },
-  add: async (content) => {
+  add: async (text) => {
     const response = await axiosInstance.post(API_ROUTES.CARD, {
-      content: content,
+      text: text,
     });
     return response.data;
   },

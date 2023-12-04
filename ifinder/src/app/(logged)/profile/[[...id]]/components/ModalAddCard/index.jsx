@@ -17,11 +17,11 @@ export function ModalAddCard() {
       <button onClick={() => setIsActive(false)}>Cancelar</button>
       <h2>Adicionar carta</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputWrapper text="Conteúdo da carta" error={errors.content?.message}>
-          <textarea rows="10" {...register("content")} />
+        <InputWrapper text="Conteúdo da carta" error={errors.text?.message}>
+          <textarea rows="10" {...register("text")} />
         </InputWrapper>
 
-        {isLoading && <p>{isLoading}</p>}
+        {isLoading && <p>Carregando</p>}
         {errorAddCard && <p>{errorAddCard}</p>}
         <button>Criar carta</button>
       </form>

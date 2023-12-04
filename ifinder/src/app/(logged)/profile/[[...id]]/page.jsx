@@ -9,7 +9,7 @@ export default async function Profile({ params }) {
   const cardsData = await cardService.getByUserId(idUser);
 
   function renderCardsBox() {
-    if (!cardsData.length) 
+    if (!cardsData.data.length) 
       return <p>Não há cartas disponíveis</p>;
 
     return cardsData.data.map((card) => (
