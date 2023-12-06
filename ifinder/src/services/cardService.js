@@ -6,13 +6,13 @@ export const cardService = {
     const response = await axiosInstance.get(API_ROUTES.CARD, {
       params: { page: page, take: take },
     });
-    return response.data;
+    return response.data.data;
   },
-  getByUserId: async (idUser, page = 1, take = 10) => {
+  getByUserId: async (idUser, page = 1, take = 20) => {
     const response = await axiosInstance.get(API_ROUTES.CARD + idUser, {
-      // params: { page: page, take: take }
+       params: { page: page, take: take }
     });
-    return response.data;
+    return response.data.data;
   },
   add: async (text) => {
     const response = await axiosInstance.post(API_ROUTES.CARD, {

@@ -4,6 +4,6 @@ export const APP_ROUTES = {
     HOME: "/",
     PRIVATE: "/private",
     CARDS: "/cards",
-    PROFILE: "/profile",
+    PROFILE: "/profile/",
     CHAT: "/chat"
 }

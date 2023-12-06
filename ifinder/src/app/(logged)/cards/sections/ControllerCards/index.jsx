@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import { Card } from "../../components";
-import { chat, trash } from "@/assets/images";
+import { trash } from "@/assets/images";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { APP_ROUTES } from "@/constants";
+
 
 export function ControllerCards({ cards, page }) {
   const { push } = useRouter();
@@ -15,7 +14,7 @@ export function ControllerCards({ cards, page }) {
   function nextCard() {
     const nextIndex = indexCard + 1;
 
-    if (nextIndex < cards.length) {
+    if (nextIndex < cards.data.length) {
       setIndexCard(nextIndex);
     } else {
       setIndexCard(0);
@@ -24,13 +23,14 @@ export function ControllerCards({ cards, page }) {
   }
 
   function renderCard() {
-    if (!cards.length) 
+    if (!cards.data.length) 
       return <p>Não há cartas disponíveis</p>;
 
-    const card = cards[indexCard];
+    const card = cards.data[indexCard];
     return (
       <Card
         key={card.idCard}
+        idAuthor={card.idAuthor}
         profileImage="/node_modulesasd"
         name={card.nameAuthor}
         age={card.ageAuthor}
@@ -46,9 +46,11 @@ export function ControllerCards({ cards, page }) {
     <div>
       {renderCard()}
 
+      {!cards.lastPage &&
       <button onClick={nextCard}>
         <Image src={trash} width={30} height={30} alt="Lixeira" />
       </button>
+      }
 
       {/*
         <Link

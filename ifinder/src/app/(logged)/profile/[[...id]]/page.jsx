@@ -17,6 +17,8 @@ export default async function Profile({ params }) {
     ));
   }
 
+  //TODO componente de paginação
+
   return (
     <div>
       <ProfileBox
@@ -27,7 +29,7 @@ export default async function Profile({ params }) {
         hoobies={profileData.hoobies}
         isAuthor={profileData.isAuthor}
       />
-
+  
       {renderCardsBox()}
     </div>
   );

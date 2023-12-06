@@ -1,5 +1,7 @@
 import { ImageProfileFallback, SliderSwiper } from "@/components";
+import { APP_ROUTES } from "@/constants";
 import s from "@/styles/pages/cards/components/card.module.scss";
+import Link from "next/link";
 
 const settingsHighligthesSwiper = {
   spaceBetween: 30,
@@ -23,6 +25,7 @@ export function Card({
   profileImage,
   name,
   age,
+  idAuthor,
   description,
   hoobies,
   cardContent,
@@ -30,12 +33,12 @@ export function Card({
 }) {
   return (
     <div className={s.cardBoxHome}>
-      <div>
+      <Link href={APP_ROUTES.PROFILE + idAuthor}>
         <ImageProfileFallback src={profileImage} width={100} height={100} />
         <h2>{name}</h2>
         {age}
         {sex}
-      </div>
+      </Link>
 
       <SliderSwiper settings={settingsHighligthesSwiper}>
         <div>

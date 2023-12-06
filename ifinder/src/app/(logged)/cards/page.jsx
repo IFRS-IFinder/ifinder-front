@@ -10,7 +10,7 @@ export default async function CardsPage({ searchParams }) {
     <div>
       <h1>Cards</h1>
 
-      <ControllerCards cards={cardsData.data} page={page} />
+      <ControllerCards cards={cardsData} page={page} />
       
     </div>
   );
