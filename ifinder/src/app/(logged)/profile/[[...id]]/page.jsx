@@ -2,11 +2,14 @@ import { cardService, userService } from "@/services";
 import { CardBox, ProfileBox } from "./components";
 import { cookies } from "next/headers";
 import { LOCAL_KEYS } from "@/constants";
+import { PaginationButtons } from "@/components";
 
-export default async function Profile({ params }) {
+export default async function Profile({ params, searchParams }) {
+  const page = searchParams.page ?? 1;
   const idUser = params.id ?? JSON.parse(cookies().get(LOCAL_KEYS.USER).value).id
   const profileData = await userService.getSimpleById(idUser);
-  const cardsData = await cardService.getByUserId(idUser);
+
+  const cardsData = await cardService.getByUserId(idUser, page, 2);
 
   function renderCardsBox() {
     if (!cardsData.data.length) 
@@ -17,7 +20,6 @@ export default async function Profile({ params }) {
     ));
   }
 
-  //TODO componente de paginação
 
   return (
     <div>
@@ -31,6 +33,8 @@ export default async function Profile({ params }) {
       />
   
       {renderCardsBox()}
+
+      <PaginationButtons page={page} totalPages={cardsData.totalPages} isLastPage={cardsData.isLastPage} />
     </div>
   );
 }
