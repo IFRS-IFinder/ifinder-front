@@ -4,8 +4,10 @@ import { AddCardSchema } from "./schema";
 import { useState } from "react";
 import axios from "axios";
 import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
+import { useToast } from "@/context/ToastContext";
 
 export function useAddCard(){
+    const toast = useToast()
     const {register, handleSubmit, formState: {errors}} = useForm({defaultValues: {content: ""}, resolver: zodResolver(AddCardSchema)})
     const [errorAddCard, setErrorAddCard] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -14,7 +16,9 @@ export function useAddCard(){
         try{
             setIsLoading(true)
             await axios.post(ROUTE_HANDLERS.CARD, {text: data.text})
-            //TODO colocar toaster
+            
+            setErrorAddCard(null)
+            toast.success("Adicionado com sucesso")
         } catch(error){
             setErrorAddCard(error.response?.data)
         }finally{

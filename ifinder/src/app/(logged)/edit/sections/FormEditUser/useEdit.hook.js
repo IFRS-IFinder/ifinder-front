@@ -4,8 +4,10 @@ import { EditSchema } from "./schema";
 import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
 import { useState } from "react";
 import axios from "axios";
+import { useToast } from "@/context/ToastContext";
 
 export function useEdit(user) {
+  const toast = useToast()
   const {
     formState: { errors },
     register,
@@ -33,7 +35,9 @@ export function useEdit(user) {
         description: data.description,
         hoobies: data.hoobies,
       });
-      //TODO colocar toaster
+      
+      setErrorEdit(null)
+      toast.success("Editado com sucesso")
     } catch (error) {
       setErrorEdit(error.response?.data);
     } finally {
