@@ -1,0 +1,14 @@
+.boxCards{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 1em auto;
+    
+    >div{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    
+}

@@ -1,0 +1,19 @@
+.footer {
+    background-color: #FEE4CB;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+

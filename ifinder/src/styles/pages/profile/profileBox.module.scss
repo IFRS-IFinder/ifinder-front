@@ -1,0 +1,23 @@
+.profile{
+    background-color: #fee4cb;
+    display: flex;
+    box-sizing: border-box;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img{
+        border-radius: 50%;
+    }
+    
+    .profileInfos{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .editProfile{
+
+    }
+}

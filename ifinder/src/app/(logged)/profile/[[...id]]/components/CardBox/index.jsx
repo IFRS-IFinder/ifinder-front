@@ -1,8 +1,10 @@
 
-export function CardBox({id, content}){
+import s from "@/styles/pages/profile/cardbox.module.scss"
+
+export function CardBox({content}){
     return(
-        <div>
-            <h2>Carta: {id}</h2>
+        <div className={s.card}>
+            <h2>Carta</h2>
             {content}
         </div>
     )

@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation"
+import s from "@/styles/components/Pagination.module.scss"
 
 export function PaginationButtons({ page, totalPages, isLastPage }) {
     const {replace} = useRouter()
@@ -13,7 +14,7 @@ export function PaginationButtons({ page, totalPages, isLastPage }) {
     }
 
     return(
-        <div>
+        <div className={s.pagination}>
             <button disabled={isFirstPage} onClick={() => handlePage(-1)}>Voltar</button>
             <p>{page}/{totalPages}</p>
             <button disabled={isLastPage} onClick={() => handlePage(1)}>Próximo</button>
