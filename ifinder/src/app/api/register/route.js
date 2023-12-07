@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   const dataRequest = await request.json();
-
+console.log(dataRequest)
   try {
     await authService.register(
       dataRequest.email,

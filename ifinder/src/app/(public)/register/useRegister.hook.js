@@ -3,14 +3,18 @@ import { useForm } from "react-hook-form";
 import { RegisterSchema } from "./schema";
 import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import { APP_ROUTES } from "@/constants";
 
 export function useRegister() {
+  const {push} = useRouter();
   const {
     formState: { errors },
     register,
     handleSubmit,
   } = useForm({
-    defaultValues: {email: "", password: "" },
+    defaultValues: {},
     resolver: zodResolver(RegisterSchema),
   });
   const [errorRegister, setErrorRegister] = useState(null);
@@ -19,8 +23,10 @@ export function useRegister() {
   async function onSubmit(data) {
     try {
       setIsLoading(true);
-      await axios.post(ROUTE_HANDLERS.REGISTER , {email: data.email, password: data.password});
+      await axios.post(ROUTE_HANDLERS.REGISTER, data);
 
+      setErrorRegister(null);
+      push(APP_ROUTES.CARDS);
     } catch (error) {
       setErrorRegister(error.response?.message);
     } finally {

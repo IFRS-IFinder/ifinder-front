@@ -15,7 +15,7 @@ export default function Register() {
       <h1 className={s.h1}>Crie sua conta</h1>
       <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         {errorRegister && <p>{errorRegister}</p>}
-        {isLoading && <p>{isLoading}</p>}
+        {isLoading && <p>Carregando</p>}
 
         <InputWrapper text="Email" error={errors.email?.message}>
           <input type="email" {...register("email")} />

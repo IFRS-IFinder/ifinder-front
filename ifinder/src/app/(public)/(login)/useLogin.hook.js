@@ -4,11 +4,11 @@ import { LoginFormSchema } from "./schema";
 import axios from "axios";
 import { useState } from "react";
 import { ROUTE_HANDLERS } from "@/constants/routeHandlers";
-import { useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { APP_ROUTES } from "@/constants";
 
 export function useLogin() {
-  const { push } = useRouter();
+  const {push} = useRouter();
   const {
     register,
     handleSubmit,
@@ -22,7 +22,7 @@ export function useLogin() {
       setIsLoading(true);
       await axios.post(ROUTE_HANDLERS.AUTH , {email: data.email, password: data.password});
 
-      push(APP_ROUTES.CARDS)
+      push(APP_ROUTES.CARDS);
     } catch (error) {
       setErrorLogin(error.response?.data);
     } finally {

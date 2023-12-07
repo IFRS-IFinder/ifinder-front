@@ -46,7 +46,7 @@ export function ControllerCards({ cards, page }) {
     <div>
       {renderCard()}
 
-      {!cards.isLastPage &&
+      {!(cards.isLastPage && cards.data.length < (indexCard+1)) &&
       <button onClick={nextCard}>
         <Image src={trash} width={30} height={30} alt="Lixeira" />
       </button>
